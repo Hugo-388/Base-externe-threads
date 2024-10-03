@@ -73,19 +73,22 @@ public class MainActivity extends AppCompatActivity {
 
     // Classe interne pour exécuter la tâche asynchrone
     private class TacheAsynchrone extends AsyncTask<Void, Integer, String> {
-        private String urlServiceWeb;
+        //Méthode texte brut
+        //private String urlServiceWeb;
+        //Méthode texte JSON
+        private String urlAJoindre;
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             // Construire l'URL du service web avec le début du nom de la ville
-            urlServiceWeb = "http://172.16.47.18//commune/commune.php?debut=" + ville;
+            urlAJoindre = "http://172.16.47.18//commune/commune.php?debut=" + ville;
         }
 
         @Override
         protected String doInBackground(Void... voids) {
             // Obtenir les données du serveur en texte brut
-            return getServerDataTexteBrut(urlServiceWeb);
+            return getServerDataJSON(urlAJoindre);
         }
 
         @Override
@@ -98,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Méthode pour obtenir les données du serveur en format JSON
     private String getServerDataJSON(String urlAJoindre) {
-        // Autoriser les opérations réseau sur le thread principal
         StringBuilder res = new StringBuilder();
 
         URL url;
