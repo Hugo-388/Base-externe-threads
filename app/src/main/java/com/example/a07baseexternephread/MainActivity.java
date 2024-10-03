@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Méthode pour obtenir les données du serveur en format JSON
+
+
     private String getServerDataJSON(String urlAJoindre) {
         StringBuilder res = new StringBuilder();
 
